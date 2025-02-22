@@ -1,3 +1,4 @@
+// 673380166-0
 #include <stdio.h>
 
 const int RUN = 32;
@@ -10,7 +11,7 @@ int min(int a, int b)
     return b;     
 }
 
-void insertionSort(int a[], int beg, int end) /* function to sort an array with insertion sort */  
+void insertionSort(int a[], int beg, int end)
 {  
     int i, j, temp;  
     for (i = beg + 1; i <= end; i++) {  
@@ -25,14 +26,14 @@ void insertionSort(int a[], int beg, int end) /* function to sort an array with 
         a[j+1] = temp;    
     }  
 }
-
+// 673380166-0
 void merge(int a[], int beg, int mid, int end)    
 {    
     int i, j, k;  
     int n1 = mid - beg + 1;    
     int n2 = end - mid;        
-    int LeftArray[n1], RightArray[n2]; //temporary arrays      
-    /* copy data to temp arrays */  
+    int LeftArray[n1], RightArray[n2];  
+
     for (int i = 0; i < n1; i++)    
     LeftArray[i] = a[beg + i];    
     for (int j = 0; j < n2; j++)    
@@ -52,7 +53,8 @@ void merge(int a[], int beg, int mid, int end)
             j++;    
         }    
         k++;    
-    }    
+    }
+// 673380166-0
     while (i<n1)    
     {    
         a[k] = LeftArray[i];    
@@ -69,20 +71,16 @@ void merge(int a[], int beg, int mid, int end)
 
 void timSort(int a[], int n)  
 {  
-      
-    /* Sort individual subarrays of size RUN */  
+    // 673380166-0
     for (int i = 0; i < n; i+=RUN)  
         insertionSort(a, i, min((i+RUN-1), (n-1)));   
-    // Start merging from size RUN (or 32).  
     for (int size = RUN; size < n; size = 2*size)  
     {  
         for (int beg = 0; beg < n; beg += 2*size)  
         {  
-            /* find ending point of left sub array. The starting point of right sub array is mid + 1 */  
             int mid = beg + size - 1;  
             int end = min((beg + 2*size - 1),(n-1));  
   
-            /* Merge subarray a[beg...mid] and a[mid+1...end] */  
             if(mid < end)  
                 merge(a, beg, mid, end);  
         }  
@@ -100,7 +98,7 @@ void printArray(int arr[], int size) {
     }
     printf("]\n");
 }
-
+// 673380166-0
 int main() {
     int arr[] = {9,7,8,5,6,3,4,2,1};
     int n = sizeof(arr) / sizeof(arr[0]);

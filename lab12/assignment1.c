@@ -1,3 +1,4 @@
+// 673380166-0
 #include <stdio.h>
 
 void swap(int* a, int* b);
@@ -27,7 +28,7 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
-
+// 673380166-0
 void swap(int* a, int* b) {
     int t = *a;
     *a = *b;
